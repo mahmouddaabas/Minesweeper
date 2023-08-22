@@ -38,8 +38,9 @@ class Minesweeper
             int yCoord = Convert.ToInt32(Console.ReadLine());
             field.CheckInputCoords(xCoord, yCoord);
             field.DrawMineField();
-            if (field.CheckWin())
+            if (field.GameOver() || field.CheckWin())
                 isGameRunning = false;
+   
         }
     }
 

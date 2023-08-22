@@ -12,6 +12,7 @@ public class Minefield
     private bool[,] _bombLocations = new bool[5, 5];
     private FieldState[,] fieldStates = new FieldState[5, 5];
     private int clearedFieldCounter = 0;
+    private bool hasLost;
 
     public void SetBomb(int x, int y)
     {
@@ -59,7 +60,7 @@ public class Minefield
         if (_bombLocations[x, y] == true)
         {
             fieldStates[x, y] = FieldState.Mine;
-            GameOver();
+            hasLost = true;
             return false;
         }
         else
@@ -137,14 +138,20 @@ public class Minefield
         }
     }
 
-    public void GameOver()
+    public bool GameOver()
     {
-        Console.WriteLine("You hit a bomb, game over!");
-        DrawMineField();
-        Environment.Exit(0);
+        if(hasLost)
+        {
+            Console.WriteLine("You hit a bomb, game over!");
+            return hasLost;
+        }
+        else
+        { 
+            return false; 
+        }
     }
 
-    public void setClearedFieldCounter(int value)
+    public void SetClearedFieldCounter(int value)
     {
         this.clearedFieldCounter = value;
     }

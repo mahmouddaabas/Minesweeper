@@ -54,7 +54,7 @@ public class Tests
     public void CheckWin_Success()
     {
         Minefield field = new Minefield();
-        field.setClearedFieldCounter(20);
+        field.SetClearedFieldCounter(20);
 
         bool result = field.CheckWin();
 
@@ -65,7 +65,7 @@ public class Tests
     public void CheckWin_Fail()
     {
         Minefield field = new Minefield();
-        field.setClearedFieldCounter(18);
+        field.SetClearedFieldCounter(18);
 
         bool result = field.CheckWin();
 
