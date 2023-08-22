@@ -25,32 +25,34 @@ public class Minefield
         Console.WriteLine("  01234");
         Console.WriteLine("  ------");
 
-        for (int row = 0; row < fieldStates.GetLength(0); row++)
+        for (int row = fieldStates.GetLength(1) - 1; row >= 0; row--)
         {
             Console.Write(row + "|");
-            for (int col = 0; col < fieldStates.GetLength(1); col++)
+
+            for (int col = 0; col < fieldStates.GetLength(0); col++)
             {
-                if (fieldStates[row, col] == FieldState.Covered)
+                if (fieldStates[col, row] == FieldState.Covered)
                 {
                     Console.Write("?");
                 }
-                else if (fieldStates[row, col] == FieldState.Uncovered)
+                else if (fieldStates[col, row] == FieldState.Uncovered)
                 {
-                    int adjacentBombs = CountAdjacentBombs(row, col);
-                    if (adjacentBombs > 0)
-                    {
-                        Console.Write(adjacentBombs);
-                    }
-                    else
+                    int adjacentBombs = CountAdjacentBombs(col, row);
+                    if (adjacentBombs == 0)
                     {
                         Console.Write(" ");
                     }
+                    else
+                    {
+                        Console.Write(adjacentBombs);
+                    }
                 }
-                else if (fieldStates[row, col] == FieldState.Mine)
+                else if (fieldStates[col, row] == FieldState.Mine)
                 {
                     Console.Write("X");
                 }
             }
+
             Console.WriteLine();
         }
     }
