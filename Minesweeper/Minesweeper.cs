@@ -32,11 +32,7 @@ class Minesweeper
         field.DrawMineField();
         while (isGameRunning)
         {
-            PrintMessage("Enter a X coordinate");
-            int xCoord = Convert.ToInt32(Console.ReadLine());
-            PrintMessage("Enter a Y coordinate");
-            int yCoord = Convert.ToInt32(Console.ReadLine());
-            field.CheckInputCoords(xCoord, yCoord);
+            AskUserForInput(field);
             field.DrawMineField();
             if (field.GameOver() || field.CheckWin())
                 isGameRunning = false;
@@ -44,7 +40,16 @@ class Minesweeper
         }
     }
 
-    public void PrintMessage(string message)
+    public void AskUserForInput(Minefield field)
+    {
+        PrintMessage("Enter a X coordinate");
+        int xCoord = Convert.ToInt32(Console.ReadLine());
+        PrintMessage("Enter a Y coordinate");
+        int yCoord = Convert.ToInt32(Console.ReadLine());
+        field.CheckInputCoords(xCoord, yCoord);
+    }
+
+    private void PrintMessage(string message)
     {
         Console.WriteLine(message);
     }

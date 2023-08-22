@@ -29,7 +29,7 @@ public class Tests
     }
 
     [TestMethod]
-    public void CountAdjacentBombs_NoBombsAround_ReturnsZero()
+    public void Test_CountAdjacentBombs_ReturnsZero()
     {
         Minefield field = new Minefield();
         field.SetBomb(0, 0);
@@ -40,7 +40,7 @@ public class Tests
     }
 
     [TestMethod]
-    public void CountAdjacentBombs_BombsAround_ReturnsNonZero()
+    public void Test_CountAdjacentBombs_ReturnsNonZero()
     {
         Minefield field = new Minefield();
         field.SetBomb(0, 0);
@@ -51,7 +51,7 @@ public class Tests
     }
 
     [TestMethod]
-    public void CheckWin_Success()
+    public void Test_CheckWin_Success()
     {
         Minefield field = new Minefield();
         field.SetClearedFieldCounter(20);
@@ -62,7 +62,7 @@ public class Tests
     }
 
     [TestMethod]
-    public void CheckWin_Fail()
+    public void Test_CheckWin_Fail()
     {
         Minefield field = new Minefield();
         field.SetClearedFieldCounter(18);
@@ -73,7 +73,7 @@ public class Tests
     }
 
     [TestMethod]
-    public void Check_GameOver_Success()
+    public void Test_GameOver_Success()
     {
         Minefield field = new Minefield();
         field.SetHasLost(true);
@@ -84,7 +84,7 @@ public class Tests
     }
 
     [TestMethod]
-    public void Check_GameOver_Fail()
+    public void Test_GameOver_Fail()
     {
         Minefield field = new Minefield();
         field.SetHasLost(false);
