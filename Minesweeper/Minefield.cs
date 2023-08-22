@@ -124,7 +124,6 @@ public class Minefield
         return bombCount;
     }
 
-
     public bool CheckWin()
     {
         if (clearedFieldCounter == 20)

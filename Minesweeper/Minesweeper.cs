@@ -42,11 +42,25 @@ class Minesweeper
 
     public void AskUserForInput(Minefield field)
     {
-        PrintMessage("Enter a X coordinate");
-        int xCoord = Convert.ToInt32(Console.ReadLine());
-        PrintMessage("Enter a Y coordinate");
-        int yCoord = Convert.ToInt32(Console.ReadLine());
-        field.CheckInputCoords(xCoord, yCoord);
+        while (true)
+        {
+            try
+            {
+                PrintMessage("Enter a X coordinate (0-4)");
+                int xCoord = Convert.ToInt32(Console.ReadLine());
+                PrintMessage("Enter a Y coordinate (0-4)");
+                int yCoord = Convert.ToInt32(Console.ReadLine());
+                field.CheckInputCoords(xCoord, yCoord);
+                break;
+            }
+            catch (Exception ex)
+            {
+                if (ex is FormatException || ex is IndexOutOfRangeException)
+                {
+                    PrintMessage("You need to input a valid integer (0-4)!");
+                }
+            }
+        }
     }
 
     private void PrintMessage(string message)
