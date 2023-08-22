@@ -143,7 +143,7 @@ public class Minefield
         if(hasLost)
         {
             Console.WriteLine("You hit a bomb, game over!");
-            return hasLost;
+            return true;
         }
         else
         { 
@@ -159,5 +159,10 @@ public class Minefield
     private void IncrementClearedFieldCounter()
     {
         this.clearedFieldCounter++;
+    }
+
+    public void SetHasLost(bool value)
+    {
+        this.hasLost = value;
     }
 }

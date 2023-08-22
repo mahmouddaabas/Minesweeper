@@ -71,4 +71,26 @@ public class Tests
 
         Assert.IsFalse(result);
     }
+
+    [TestMethod]
+    public void Check_GameOver_Success()
+    {
+        Minefield field = new Minefield();
+        field.SetHasLost(true);
+
+        bool result = field.GameOver();
+
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void Check_GameOver_Fail()
+    {
+        Minefield field = new Minefield();
+        field.SetHasLost(false);
+
+        bool result = field.GameOver();
+
+        Assert.IsFalse(result);
+    }
 }
