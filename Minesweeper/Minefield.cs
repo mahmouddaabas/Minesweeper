@@ -61,12 +61,12 @@ public class Minefield
         {
             fieldStates[x, y] = FieldState.Mine;
             hasLost = true;
-            return false;
+            return true;
         }
         else
         {
             UncoverNearbyFields(x, y);
-            return true;
+            return false;
         }
     }
 

@@ -14,7 +14,7 @@ public class Tests
 
         bool result = field.CheckInputCoords(0, 0);
 
-        Assert.IsFalse(result);
+        Assert.IsTrue(result);
     }
 
     [TestMethod]
@@ -25,7 +25,7 @@ public class Tests
 
         bool result = field.CheckInputCoords(0, 0);
 
-        Assert.IsTrue(result);
+        Assert.IsFalse(result);
     }
 
     [TestMethod]
